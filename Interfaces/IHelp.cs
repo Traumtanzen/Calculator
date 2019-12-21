@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Calculator.Interfaces
 {
-    interface IProcessQuery
+    interface IHelp
     {
-        public Task ProcessingQuery(string rawQuery);
+        public Task ShowHelp();
     }
 }

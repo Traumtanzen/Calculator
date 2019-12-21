@@ -10,7 +10,7 @@ namespace Calculator.Services
         public async Task PreparingResult(string query, double calculatedResult)
         {
             var showResult = new ShowResult();
-            showResult.ShowingResult(calculatedResult);
+            await showResult.ShowingResult(calculatedResult);
 
             var resultToSave = new CalculationData();
             resultToSave.UserQuery = query;

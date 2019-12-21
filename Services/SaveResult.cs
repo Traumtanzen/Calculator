@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Calculator.Services
 {
-    public class SaveResult: ISaveResult
+    public class SaveResult : ISaveResult
     {
         public async Task SavingResult(CalculationData resultToSave)
         {

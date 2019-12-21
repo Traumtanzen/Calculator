@@ -4,6 +4,6 @@ namespace Calculator.Interfaces
 {
     interface IShowResult
     {
-        public void ShowingResult(double calculatedResult);
+        public Task ShowingResult(double calculatedResult);
     }
 }
