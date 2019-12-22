@@ -13,12 +13,13 @@ namespace Calculator.Services
             Console.WriteLine("This is simple calculator. It can:" +
                 "\n'1 + 2' - Sum" +
                 "\n'1 - 2' - Subtract" +
-                "\n'1 * 2' - Myltiply" +
+                "\n'1 * 2' - Multiply" +
                 "\n'1 / 2' - Divide" +
                 "\n'2 sin' - Find sinus" +
                 "\n'2 cos' - Find cosinus" +
                 "\n'2 tan' - Find tangens" +
-                "\n'2 ^ 3' - Exponent numbers");
+                "\n'2 ^ 3' - Exponent numbers" +
+                "\n'l' - Show operations' history");
             IGetQuery newQuery = new GetQuery();
             await newQuery.GettingQuery();
         }

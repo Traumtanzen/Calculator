@@ -1,22 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Calculator.Interfaces;
 
 namespace Calculator.Services
 {
     public class ShowOperationsHistory: IShowOperationsHistory
     {
-        public async void ShowHistory()
+        public async Task ShowHistory()
         {
-            await using(var context = new CalculatorContext())
+            using(var context = new CalculatorContext())
             {
-                foreach (var entry in context.LogFile)
+                if (context.LogFile != null)
                 {
-                    Console.WriteLine($"{entry.Id.ToString()}) Query: \"{entry.UserQuery.ToString()}\", Result:\"{entry.CalculationResult.ToString()}\"," +
-                        $"Calculated on: \"{entry.OperationTime.ToString()}\"");
+                    foreach (var entry in context.LogFile)
+                    {
+                        Console.WriteLine($"{entry.Id.ToString()}) Query: \"{entry.UserQuery.ToString()}\", Result:\"{entry.CalculationResult.ToString()}\"," +
+                            $"Calculated on: \"{entry.OperationTime.ToString()}\"");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No entries available.");
                 }
             }
+            IGetQuery newQuery = new GetQuery();
+            await newQuery.GettingQuery();
         }
     }
 }

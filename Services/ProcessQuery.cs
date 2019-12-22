@@ -16,13 +16,18 @@ namespace Calculator.Services
                 IHelp help = new Help();
                 await help.ShowHelp();
             }
+            else if (rawQuery == "l")
+            {
+                IShowOperationsHistory operationsHistory = new ShowOperationsHistory();
+                await operationsHistory.ShowHistory();
+            }
             else
             {
                 if (rawQuery.Contains("+"))
                 {
                     List<string> forSum = new List<string>(rawQuery.Split('+', StringSplitOptions.RemoveEmptyEntries));
                     double.TryParse(forSum.ElementAt(0), out double firstValue);
-                    double.TryParse(forSum.ElementAt(2), out double secondValue);
+                    double.TryParse(forSum.ElementAt(1), out double secondValue);
                     ISum sum = new Sum();
                     await sum.Summing(rawQuery, firstValue, secondValue);
                 }
@@ -30,7 +35,7 @@ namespace Calculator.Services
                 {
                     List<string> forDivision = new List<string>(rawQuery.Split('-', StringSplitOptions.RemoveEmptyEntries));
                     double.TryParse(forDivision.ElementAt(0), out double firstValue);
-                    double.TryParse(forDivision.ElementAt(2), out double secondValue);
+                    double.TryParse(forDivision.ElementAt(1), out double secondValue);
                     IDivide division = new Divide();
                     await division.Dividing(rawQuery, firstValue, secondValue);
                 }
@@ -38,15 +43,23 @@ namespace Calculator.Services
                 {
                     List<string> forMultuplying = new List<string>(rawQuery.Split('*', StringSplitOptions.RemoveEmptyEntries));
                     double.TryParse(forMultuplying.ElementAt(0), out double firstValue);
-                    double.TryParse(forMultuplying.ElementAt(2), out double secondValue);
+                    double.TryParse(forMultuplying.ElementAt(1), out double secondValue);
                     IMultiply multiplication = new Multiply();
                     await multiplication.Multiplying(rawQuery, firstValue, secondValue);
+                }
+                else if (rawQuery.Contains("/"))
+                {
+                    List<string> forDividing = new List<string>(rawQuery.Split('/', StringSplitOptions.RemoveEmptyEntries));
+                    double.TryParse(forDividing.ElementAt(0), out double firstValue);
+                    double.TryParse(forDividing.ElementAt(1), out double secondValue);
+                    IDivide division = new Divide();
+                    await division.Dividing(rawQuery, firstValue, secondValue);
                 }
                 else if (rawQuery.Contains("^"))
                 {
                     List<string> forExponenting = new List<string>(rawQuery.Split('^', StringSplitOptions.RemoveEmptyEntries));
                     double.TryParse(forExponenting.ElementAt(0), out double firstValue);
-                    double.TryParse(forExponenting.ElementAt(2), out double secondValue);
+                    double.TryParse(forExponenting.ElementAt(1), out double secondValue);
                     IExp exponention = new Exp();
                     await exponention.CalculateExp(rawQuery, firstValue, secondValue);
                 }

@@ -12,6 +12,8 @@ namespace Calculator.Services
             {
                 context.LogFile.Add(resultToSave);
                 await context.SaveChangesAsync();
+                IGetQuery newQuery = new GetQuery();
+                await newQuery.GettingQuery();
             }
         }
     }

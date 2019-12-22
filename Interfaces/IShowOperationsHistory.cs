@@ -7,6 +7,6 @@ namespace Calculator.Interfaces
 {
     interface IShowOperationsHistory
     {
-        public void ShowHistory();
+        public Task ShowHistory();
     }
 }
