@@ -9,7 +9,6 @@ namespace Calculator.Services
         public async Task ShowingResult(double calculatedResult)
         {
             Console.WriteLine($"The result is: {calculatedResult.ToString()}");
-            return;
         }
 
     }

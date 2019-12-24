@@ -8,6 +8,6 @@ namespace Calculator.Models
     {
         public string UserQuery { get; set; }
         public double CalculationResult { get; set; }
-        public DateTime OperationTime { get; set; }
+        public string OperationTime { get; set; }
     }
 }
