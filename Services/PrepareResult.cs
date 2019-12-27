@@ -9,6 +9,8 @@ namespace Calculator.Services
     {
         public async Task PreparingResult(string query, double calculatedResult)
         {
+            
+            
             var showResult = new ShowResult();
             await showResult.ShowingResult(calculatedResult);
 
