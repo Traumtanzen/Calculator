@@ -15,7 +15,7 @@ namespace Calculator.Services
             var resultToSave = new CalculationData();
             resultToSave.UserQuery = query;
             resultToSave.CalculationResult = calculatedResult;
-            resultToSave.OperationTime = DateTime.Now.ToString();
+            resultToSave.OperationTime = DateTime.Now;
 
             var save = new SaveResult();
             await save.SavingResult(resultToSave);

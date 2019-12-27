@@ -21,6 +21,10 @@ namespace Calculator.Services
                 IShowOperationsHistory operationsHistory = new ShowOperationsHistory();
                 await operationsHistory.ShowHistory();
             }
+            else if (rawQuery == "x")
+            {
+                Console.WriteLine("Goodbye!");               
+            }
             else
             {
                 if (rawQuery.Contains("+"))

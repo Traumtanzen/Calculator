@@ -10,7 +10,7 @@ namespace Calculator.Services
     {
         public async Task GettingQuery()
         {
-            Console.WriteLine("Make an input");
+            Console.WriteLine("Make an input or enter 'x' to exit");
             string query = Console.ReadLine().Trim().ToLower();
             IProcessQuery process = new ProcessQuery();
             await process.ProcessingQuery(query);
